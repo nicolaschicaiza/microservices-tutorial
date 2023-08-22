@@ -13,12 +13,12 @@ import com.usuario.service.models.Carro;
 /**
  * CarroFeignClient
  */
-@FeignClient(name = "carro-service", url = "http://localhost:8082/carro")
+@FeignClient(name = "carro-service") // , url = "http://localhost:8082/carro"
 public interface CarroFeignClient {
 
-    @PostMapping()
+    @PostMapping("carro")
     public Carro save(@RequestBody Carro carro);
 
-    @GetMapping("/usuario/{usuarioId}")
+    @GetMapping("carro/usuario/{usuarioId}")
     public List<Carro> getCarros(@PathVariable("usuarioId") int usuarioId);
 }
